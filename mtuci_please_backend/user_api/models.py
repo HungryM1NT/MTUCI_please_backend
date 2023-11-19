@@ -31,10 +31,12 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=50)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
+    level = models.IntegerField(default=1)
+    first_level_score = models.IntegerField(default=0)
+    second_level_score = models.IntegerField(default=0)
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
     objects = AppUserManager()
-
 
     def __str__(self):
         return self.username
