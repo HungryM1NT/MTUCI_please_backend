@@ -1,3 +1,5 @@
+from rest_framework import permissions
+from rest_framework.authentication import SessionAuthentication
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from random import *
@@ -6,9 +8,11 @@ from datetime import *
 
 
 class PersonsRandomize(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = (SessionAuthentication,)
     def get(self, request):
         output = []
-        for i in range(10):
+        for i in range(25):
             person_data = dict()
             gender = choice(['М', 'Ж'])
             person = Person.objects.filter(gender=gender)
@@ -97,3 +101,11 @@ class PersonsRandomize(APIView):
                         person_data["error_code"] = 8
             output.append(person_data)
         return Response(output)
+
+# class SetValue(APIView):
+#     permission_classes = (permissions.IsAuthenticated,)
+#     authentication_classes = (SessionAuthentication,)
+#
+#     def get(self, request):
+#         serializer = UserSerializer(request.user)
+#         return Response({'user': serializer.data}, status=status.HTTP_200_OK)

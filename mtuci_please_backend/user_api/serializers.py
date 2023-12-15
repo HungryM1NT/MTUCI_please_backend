@@ -29,11 +29,11 @@ class UserLoginSerializer(serializers.Serializer):
             password=clean_data['password']
         )
         if not user:
-            raise ValueError('Такого пользователя не существует')
+            raise serializers.ValidationError("Такого пользователя не существует")
         return user
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
-        fields = ('email', 'username')
+        fields = ('email', 'username', 'first_level_score')
