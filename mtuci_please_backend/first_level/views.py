@@ -11,7 +11,7 @@ class PersonsRandomize(APIView):
     permission_classes = (permissions.IsAuthenticated,)
     authentication_classes = (SessionAuthentication,)
     def get(self, request):
-        output = []
+        # output = []
         for i in range(1):
             person_data = dict()
             gender = choice(['М', 'Ж'])
@@ -111,5 +111,6 @@ class PersonsRandomize(APIView):
                             wrong_passport_photo = choice(person.values_list('photo'))[0]
                         person_data["passport_photo"] = wrong_passport_photo
                         person_data["error_code"] = 8
-            output.append(person_data)
-        return Response(output)
+            return Response(person_data)
+        #     output.append(person_data)
+        # return Response(output)
