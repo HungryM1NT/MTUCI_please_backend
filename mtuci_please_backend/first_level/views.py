@@ -12,7 +12,7 @@ class PersonsRandomize(APIView):
     authentication_classes = (SessionAuthentication,)
     def get(self, request):
         output = []
-        for i in range(25):
+        for i in range(1):
             person_data = dict()
             gender = choice(['М', 'Ж'])
             person = Person.objects.filter(gender=gender)
