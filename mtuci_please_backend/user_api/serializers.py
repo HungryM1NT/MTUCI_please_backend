@@ -36,4 +36,4 @@ class UserLoginSerializer(serializers.Serializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel
-        fields = ('email', 'username', 'first_level_score')
+        fields = ('email', 'username', 'level', 'first_level_score')
