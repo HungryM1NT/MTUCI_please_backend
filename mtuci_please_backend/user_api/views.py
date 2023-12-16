@@ -54,7 +54,7 @@ class UserView(APIView):
     permission_classes = (permissions.AllowAny,)
     authentication_classes = ()
     def get(self, request):
-        if request.user:
+        if request.user.is_authenticated:
             serializer = UserSerializer(request.user)
             return Response({'user': serializer.data}, status=status.HTTP_200_OK)
         return Response(status=status.HTTP_200_OK)
