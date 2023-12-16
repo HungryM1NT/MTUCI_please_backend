@@ -7,7 +7,7 @@ class Person(models.Model):
         MAN = 'М', 'Мужчина'
         WOMAN = 'Ж', 'Женщина'
 
-    photo = models.ImageField(upload_to='persons_images')
+    photo = models.FileField(upload_to='persons_images')
     surname = models.CharField(max_length=128)
     name = models.CharField(max_length=128)
     middle_name = models.CharField(max_length=128)

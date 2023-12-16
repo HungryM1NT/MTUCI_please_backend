@@ -28,7 +28,10 @@ class PersonsRandomize(APIView):
 
             if randint(1, 10) <= 6:
                 person_data["pass"] = True
-                person_data["fullname"] = fullname
+                person_data["surname"] = surname
+                person_data["name"] = name
+                person_data["middle_name"] = middle_name
+                # person_data["fullname"] = fullname
                 if randint(1, 10) <= 5:
                     wrong_pass_photo = photo
                     while wrong_pass_photo == photo:
@@ -43,7 +46,10 @@ class PersonsRandomize(APIView):
             if randint(1, 10) <= 7:
                 person_data["student_id"] = True
                 person_data["student_id_photo"] = photo
-                person_data["student_id_fullname"] = fullname
+                person_data["student_id_surname"] = surname
+                person_data["student_id_name"] = name
+                person_data["student_id_middle_name"] = middle_name
+                # person_data["student_id_fullname"] = fullname
                 person_data["student_id_date"] = "31 августа " + str(now_date.year)
             else:
                 person_data["student_id"] = False
@@ -51,7 +57,10 @@ class PersonsRandomize(APIView):
             if randint(1, 10) <= 7:
                 person_data["passport"] = True
                 person_data["passport_photo"] = photo
-                person_data["passport_fullname"] = fullname
+                # person_data["passport_fullname"] = fullname
+                person_data["passport_surname"] = surname
+                person_data["passport_name"] = name
+                person_data["passport_middle_name"] = middle_name
             else:
                 person_data["passport"] = False
 
@@ -76,17 +85,20 @@ class PersonsRandomize(APIView):
                             wrong_surname = surname
                             while wrong_surname == surname:
                                 wrong_surname = choice(person.values_list('surname'))[0]
-                            person_data["student_id_fullname"] = wrong_surname + " " + name + " " + middle_name
+                            person_data["student_id_surname"] = wrong_surname
+                            # person_data["student_id_fullname"] = wrong_surname + " " + name + " " + middle_name
                         elif wrong_index == 1:
                             wrong_name = name
                             while wrong_name == name:
                                 wrong_name = choice(person.values_list('name'))[0]
-                            person_data["student_id_fullname"] = surname + " " + wrong_name + " " + middle_name
+                            person_data["student_id_name"] = wrong_name
+                            # person_data["student_id_fullname"] = surname + " " + wrong_name + " " + middle_name
                         else:
                             wrong_middle_name = middle_name
                             while wrong_middle_name == middle_name:
                                 wrong_middle_name = choice(person.values_list('middle_name'))[0]
-                            person_data["student_id_fullname"] = surname + " " + name + " " + wrong_middle_name
+                            person_data["student_id_middle_name"] = wrong_middle_name
+                            # person_data["student_id_fullname"] = surname + " " + name + " " + wrong_middle_name
                         person_data["error_code"] = 6
 
                     elif randint(1, 10) <= 2:
