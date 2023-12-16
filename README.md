@@ -1,20 +1,20 @@
-## Local Developing
+## Запуск проекта
 
-1. Firstly, create and activate a new virtual environment:
+1. Создание и активирование виртуального окружения:
    ```bash
-   python -m venv venv
+   py -m venv venv
    venv\Scripts\activate
    ```
    
-2. Install packages:
+2. Установка необходимых библиотек:
    ```bash
    pip install -r requirements.txt
    ```
    
-3. Run project dependencies, migrations, fill the database with the fixture data etc.:
+3. Заполнение базы данных и запуск сервера:
    ```bash
-   python ./manage.py migrate
-   python ./manage.py loaddata main_page/fixtures/persons.json
-   python ./manage.py runserver 
+   py mtuci_please_backend/manage.py migrate
+   py mtuci_please_backend/manage.py loaddata mtuci_please_backend/persons.json
+   py mtuci_please_backend/manage.py runserver 
    ```
 
