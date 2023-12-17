@@ -73,5 +73,5 @@ class SetValue(APIView):
         user.level = max(user.level, now_level + 1)
         if now_level == 1:
             user.first_level_score = max(user.first_level_score, first_level_score)
-
+        user.save()
         return Response(status=status.HTTP_200_OK)
