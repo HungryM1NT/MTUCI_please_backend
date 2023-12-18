@@ -1,0 +1,45 @@
+.gitignore
+*.docx
+venv
+README.md
+
+# Ignore Python compiled files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore Django migrations
+*/migrations/*
+
+# Ignore all log files
+*.log
+
+# Ignore SQLite database file if you're using SQLite
+# db.sqlite3
+
+# Ignore all .env files
+*.env
+
+# Ignore the virtual environment directory
+venv/
+
+# Ignore Git and GitHub files
+.git/
+.gitignore
+.github/
+
+# Ignore all .DS_Store files (for macOS users)
+.DS_Store
+
+# Ignore all bytecode files
+*.py[cod]
+
+# Ignore all .pyc files (__pycache__ directories are also excluded)
+**/*.pyc
+
+# Ignore all .pyo files
+**/*.pyo
+
+# Ignore all .pyd files
+**/*.pyd
